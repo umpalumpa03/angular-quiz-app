@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="wizard-card">
+    <h1>Welcome to the Quiz</h1>
+
+    <div class="wizard-steps">
+      <div class="step" [class.active]="currentStep() === 1" [class.completed]="currentStep() > 1">
+        <div class="step-number">1</div>
+        <div class="step-label">Your Name</div>
+      </div>
+      <div class="step-divider"></div>
+      <div class="step" [class.active]="currentStep() === 2">
+        <div class="step-number">2</div>
+        <div class="step-label">Your Email</div>
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    @if (currentStep() === 1) {
+      <div class="form-step">
+        <div class="form-group">
+          <label for="user-name">Your name</label>
+          <input
+            type="text"
+            id="user-name"
+            [value]="name()"
+            (input)="name.set($any($event.target).value)"
+            [class.error]="nameTouched() && !isNameValid()"
+          />
+
+          @if (nameTouched() && !isNameValid()) {
+            <div class="error-message">Name is required</div>
+          }
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" disabled>Back</button>
+          <button class="btn btn-primary" (click)="nextStep()" [disabled]="!isNameValid()">
+            Next
+          </button>
+        </div>
+      </div>
+    }
+
+    <!-- Step 2 -->
+    @if (currentStep() === 2) {
+      <div class="form-step">
+        <div class="form-group">
+          <label for="user-email">Your email</label>
+          <input
+            type="email"
+            id="user-email"
+            [value]="email()"
+            (input)="email.set($any($event.target).value)"
+            [class.error]="emailTouched() && !isEmailValid()"
+          />
+
+          @if (emailTouched() && !isEmailValid()) {
+            <div class="error-message">Please enter a valid email</div>
+          }
+        </div>
+
+        <div class="button-group">
+          <button class="btn btn-secondary" (click)="previousStep()">Back</button>
+          <button
+            class="btn btn-primary"
+            (click)="submit()"
+            [disabled]="!isFormValid() || loading()"
+          >
+            {{ loading() ? 'Loading...' : 'Start Quiz' }}
+          </button>
+        </div>
+      </div>
+    }
+
+    @if (error()) {
+      <div class="error-alert">⚠️ {{ error() }}</div>
+    }
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="question-container">
+    @if (question) {
+    <h2 class="question-text">{{ question.question }}</h2>
+    <div class="points-badge">{{ question.points }} points</div>
+
+    @if (question.type === 'single') {
+    <div class="options-list">
+        @for (option of question.options; track option.id) {
+        <div class="option-item" [class.selected]="isSelected(option.id)">
+            <label class="option-label" [attr.for]="'single-' + option.id">
+                <input type="radio" [id]="'single-' + option.id" name="single"
+                    [checked]="isSelected(option.id)" (change)="selectSingle(option.id)" />
+                <span class="option-text">{{ option.label }}</span>
+            </label>
+        </div>
+        }
+    </div>
+    }
+
+    @if (question.type === 'multiple') {
+    <div class="options-list">
+        @for (option of question.options; track option.id) {
+        <div class="option-item" [class.selected]="isSelected(option.id)">
+            <label class="option-label" [attr.for]="'multi-' + option.id">
+                <input type="checkbox" [id]="'multi-' + option.id" [checked]="isSelected(option.id)"
+                    (change)="toggleMultiple(option.id)" />
+                <span class="option-text">{{ option.label }}</span>
+            </label>
+        </div>
+        }
+    </div>
+    }
+    }
+</div>

@@ -1,0 +1,61 @@
+<div class="results-container">
+    @if (result(); as res) {
+    <div class="results-card">
+        <h1>Quiz Completed!</h1>
+
+        <div class="result-details">
+            <div class="detail-item">
+                <span class="detail-label">Name:</span>
+                <span class="detail-value">{{ res.userName }}</span>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-label">Email:</span>
+                <span class="detail-value">{{ res.userEmail }}</span>
+            </div>
+        </div>
+
+        <div class="score-section">
+            <div class="score-circle" [class.excellent]="res.percentage >= 80"
+                [class.good]="res.percentage >= 60 && res.percentage < 80" [class.fair]="res.percentage < 60">
+                <div class="percentage">{{ res.percentage }}%</div>
+                <div class="score-label">Score</div>
+            </div>
+
+            <div class="score-breakdown">
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Your Score:</span>
+                    <span class="breakdown-value">{{ res.totalScore }} points</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-label">Maximum Score:</span>
+                    <span class="breakdown-value">{{ res.maxScore }} points</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="performance-message">
+            @if (res.percentage >= 80) {
+            <p> Excellent! You did great!</p>
+            }
+            @if (res.percentage >= 60 && res.percentage < 80) { <p> Good job! Keep learning!</p>
+                }
+                @if (res.percentage < 60) { <p> Keep practicing! You'll do better next time!</p>
+                    }
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="onRestart()">
+            Restart Quiz
+        </button>
+    </div>
+    }
+    @else {
+    <div class="results-card">
+        <h2>No results available</h2>
+        <p>Please complete the quiz first.</p>
+        <button type="button" class="btn btn-primary" (click)="goToStart()">
+            Go to Start
+        </button>
+    </div>
+    }
+</div>

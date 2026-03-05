@@ -1,0 +1,32 @@
+<div class="quiz-container">
+  <div class="quiz-card">
+    <app-progress-bar [current]="currentQuestionIndex() + 1" [total]="totalQuestions()"></app-progress-bar>
+
+    <div class="progress-text">
+      {{ progressText() }}
+    </div>
+
+    @if (error()) {
+    <div class="warning-banner"> {{ error() }}</div>
+    }
+
+    @if (currentQuestion(); as question) {
+    <app-question [question]="question" [answer]="currentAnswer()"
+      (answerChange)="onAnswerChange($event)"></app-question>
+    }
+
+    <div class="navigation-buttons">
+      <button type="button" class="btn btn-secondary" (click)="onPrevious()">
+        ← Back
+      </button>
+
+      @if (!isLastQuestion()) {
+      <button type="button" class="btn btn-primary" (click)="onNext()">Next →</button>
+      }
+
+      @if (isLastQuestion()) {
+      <button type="button" class="btn btn-success" (click)="onSubmit()">Submit Quiz</button>
+      }
+    </div>
+  </div>
+</div>

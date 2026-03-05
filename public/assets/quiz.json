@@ -1,0 +1,89 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "type": "single",
+      "question": "What is Angular primarily used for?",
+      "options": [
+        { "id": "a", "label": "Building web applications", "isCorrect": true },
+        { "id": "b", "label": "Database management", "isCorrect": false },
+        { "id": "c", "label": "Image editing", "isCorrect": false },
+        { "id": "d", "label": "Video streaming", "isCorrect": false }
+      ],
+      "points": 10
+    },
+    {
+      "id": "q2",
+      "type": "multiple",
+      "question": "Which of the following are Angular core concepts? (Select all that apply)",
+      "options": [
+        { "id": "a", "label": "Components", "isCorrect": true },
+        { "id": "b", "label": "Services", "isCorrect": true },
+        { "id": "c", "label": "jQuery", "isCorrect": false },
+        { "id": "d", "label": "Directives", "isCorrect": true },
+        { "id": "e", "label": "PHP", "isCorrect": false }
+      ],
+      "points": 15
+    },
+    {
+      "id": "q3",
+      "type": "single",
+      "question": "What is NgRx primarily used for in Angular applications?",
+      "options": [
+        { "id": "a", "label": "Routing", "isCorrect": false },
+        { "id": "b", "label": "State Management", "isCorrect": true },
+        { "id": "c", "label": "Form Validation", "isCorrect": false },
+        { "id": "d", "label": "HTTP Requests", "isCorrect": false }
+      ],
+      "points": 10
+    },
+    {
+      "id": "q4",
+      "type": "multiple",
+      "question": "Which TypeScript features are commonly used in Angular? (Select all that apply)",
+      "options": [
+        { "id": "a", "label": "Decorators", "isCorrect": true },
+        { "id": "b", "label": "Interfaces", "isCorrect": true },
+        { "id": "c", "label": "Generics", "isCorrect": true },
+        { "id": "d", "label": "Assembly", "isCorrect": false }
+      ],
+      "points": 20
+    },
+    {
+      "id": "q5",
+      "type": "single",
+      "question": "What does the 'standalone: true' flag indicate in Angular v21?",
+      "options": [
+        { "id": "a", "label": "Component doesn't need NgModule", "isCorrect": true },
+        { "id": "b", "label": "Component is deprecated", "isCorrect": false },
+        { "id": "c", "label": "Component is lazy-loaded", "isCorrect": false },
+        { "id": "d", "label": "Component has no template", "isCorrect": false }
+      ],
+      "points": 15
+    },
+    {
+      "id": "q6",
+      "type": "single",
+      "question": "Which RxJS operator is used to transform emitted values?",
+      "options": [
+        { "id": "a", "label": "filter", "isCorrect": false },
+        { "id": "b", "label": "map", "isCorrect": true },
+        { "id": "c", "label": "tap", "isCorrect": false },
+        { "id": "d", "label": "take", "isCorrect": false }
+      ],
+      "points": 10
+    },
+    {
+      "id": "q7",
+      "type": "multiple",
+      "question": "What are the benefits of using Reactive Forms? (Select all that apply)",
+      "options": [
+        { "id": "a", "label": "Type-safe", "isCorrect": true },
+        { "id": "b", "label": "Synchronous access to data", "isCorrect": true },
+        { "id": "c", "label": "Automatic validation", "isCorrect": false },
+        { "id": "d", "label": "Easier testing", "isCorrect": true }
+      ],
+      "points": 20
+    }
+  ]
+}
